@@ -1,0 +1,4 @@
+# Run Database
+```
+psql postgres 
+```
