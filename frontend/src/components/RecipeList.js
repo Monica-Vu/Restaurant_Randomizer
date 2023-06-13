@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RecipeDataService from "../services/RecipeService";
+import { Link } from "react-router-dom";
 
 const RecipesList = () => {
     const [recipes, setRecipes] = useState([]);
@@ -39,7 +40,7 @@ const RecipesList = () => {
     };
 
     const removeAllRecipes = () => {
-        RecipeDataService.removeAll()
+        RecipeDataService.deleteAll()
             .then(response => {
                 console.log(response.data);
                 refreshList();
@@ -123,19 +124,11 @@ const RecipesList = () => {
                             </label>{" "}
                             {currentRecipe.ingredients}
                         </div>
-                        <button
-                            className="badge badge-danger mr-2"
-                            onClick={deleteRecipe}
+                        <Link 
+                            to={"/recipes/" + currentRecipe.id}
                         >
-                            Delete
-                        </button>
-                        <button
-                            type="submit"
-                            className="badge badge-success"
-                            onClick={updateRecipe}
-                        >
-                            Update
-                        </button>
+                            Edit
+                        </Link>
                     </div>
                 ) : (
                     <div>

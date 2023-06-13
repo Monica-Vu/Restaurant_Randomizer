@@ -10,11 +10,11 @@ class RecipeDataService {
     }
 
     create(data) {
-        return http.post(`/recipes/${id}`, data)
+        return http.post(`/recipes`, data)
     }
 
     update(id, data) {
-        return http.put(`/recipes/$[id}]`, data)
+        return http.put(`/recipes/${id}`, data)
     }
 
     delete(id) {
