@@ -120,9 +120,9 @@ const RestaurantsList = () => {
                         </div>
                         <div>
                             <label>
-                                <strong>Ingredients: </strong>
+                                <strong>Cuisine Type: </strong>
                             </label>{" "}
-                            {currentRestaurant.ingredients}
+                            {currentRestaurant.cuisinetype}
                         </div>
                         <Link 
                             to={"/restaurants/" + currentRestaurant.id}

@@ -5,7 +5,7 @@ const AddRestaurant = () => {
     const intialRestaurantState = {
         id: null,
         name: "",
-        ingredients: ""
+        cuisinetype: ""
     };
 
     const [restaurant, setRestaurant] = useState(intialRestaurantState);
@@ -19,7 +19,7 @@ const AddRestaurant = () => {
     const saveRestaurant = () => {
         let data = {
             name: restaurant.name,
-            ingredients: restaurant.ingredients
+            cuisinetype: restaurant.cuisinetype
         };
 
         RestaurantDataService.create(data)
@@ -27,7 +27,7 @@ const AddRestaurant = () => {
                 setRestaurant({
                     id: response.data.id,
                     name: response.data.name,
-                    ingredients: response.data.ingredients
+                    cuisinetype: response.data.cuisinetype
                 });
                 setSubmitted(true);
                 console.log(response.data);
@@ -67,15 +67,15 @@ const AddRestaurant = () => {
                 </div>
 
                 <div className="form-group">
-                <label htmlFor="description">Ingredients</label>
+                <label htmlFor="description">Cuisine Type</label>
                 <input 
                     type="text"
                     className="form-control"
-                    id="ingredients"
+                    id="cuisinetype"
                     required 
-                    value={restaurant.ingredients}
+                    value={restaurant.cuisinetype}
                     onChange={handleInputChange}
-                    name="ingredients"
+                    name="cuisinetype"
                     /> 
                 </div>
 

@@ -16,7 +16,7 @@ exports.create = (req, res) => {
     // create restaurant
     const restaurant = {
         name: req.body.name,
-        ingredients: req.body.ingredients,
+        cuisinetype: req.body.cuisinetype,
     }
 
     // save restaurant in database

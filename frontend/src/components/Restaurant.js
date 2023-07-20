@@ -9,7 +9,7 @@ const Restaurant = props => {
     const intialRestaurantState = {
         id: null,
         name: "",
-        ingredients: ""
+        cuisinetype: ""
     }
 
     const [currentRestaurant, setCurrentRestaurant] = useState(intialRestaurantState);
@@ -75,13 +75,13 @@ const Restaurant = props => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="ingredients">Ingredients</label>
+                  <label htmlFor="cuisinetype">Cuisine Type</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="ingredients"
-                    name="ingredients"
-                    value={currentRestaurant.ingredients}
+                    id="cuisinetype"
+                    name="cuisinetype"
+                    value={currentRestaurant.cuisinetype}
                     onChange={handleInputChange}
                   />
                 </div>
