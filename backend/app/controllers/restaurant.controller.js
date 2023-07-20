@@ -1,8 +1,8 @@
 const db = require("../models");
-const Recipe = db.recipes;
+const Restaurant = db.restaurants;
 const Op = db.Sequelize.Op;
 
-// create an save new recipe
+// create an save new restaurant
 exports.create = (req, res) => {
     // validate request
     console.log("req =>", req.body)
@@ -13,122 +13,122 @@ exports.create = (req, res) => {
         return;
     }
 
-    // create recipe
-    const recipe = {
+    // create restaurant
+    const restaurant = {
         name: req.body.name,
         ingredients: req.body.ingredients,
     }
 
-    // save recipe in database
-    Recipe.create(recipe)
+    // save restaurant in database
+    Restaurant.create(restaurant)
         .then(data => {
             res.send(data);
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message || `Some error occurred while creating the recipe`
+                message: err.message || `Some error occurred while creating the restaurant`
             });
         });
 };
 
-// retrieve all recipes from db
+// retrieve all restaurants from db
 exports.findAll = (req, res) => {
     const name = req.query.name;
     let condition = name ? { name: { [Op.iLike]: `%${name}%` } } : null
 
-    Recipe.findAll({ where: condition })
+    Restaurant.findAll({ where: condition })
         .then(data => {
             res.send(data);
         })
         .catch(err => {
             res.status(500).send({
                 message: 
-                err.message || `Some error occured while retrieving recipes.`
+                err.message || `Some error occured while retrieving restaurant.`
             })
         })
 };
 
-// find single recipe w/ id
+// find single restaurant w/ id
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
-    Recipe.findByPk(id)
+    Restaurant.findByPk(id)
         .then(data => {
             if (data) {
                 res.send(data);
             } else {
                 res.statis(404).send({ 
-                    message: `Cannot find Recipe with id=${id}.`
+                    message: `Cannot find Restaurant with id=${id}.`
                 })
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: `Error retrieving Recipe with id ${id}`
+                message: `Error retrieving Restaurant with id ${id}`
             })
         })
 };
 
-// update recipes by id in request
+// update restaurant by id in request
 exports.update = (req, res) => {
     const id = req.params.id;
 
-    Recipe.update(req.body, {
+    Restaurant.update(req.body, {
         where: { id: id }
     })
         .then(num => {
             if (num == 1) {
                 res.send({
-                    message: `Recipe was successfully updated.`
+                    message: `Restaurant was successfully updated.`
                 });
             } else {
                 res.send({
-                    message: `Cannot update Recipe with id=${id}`
+                    message: `Cannot update restaurant with id=${id}`
                 });
             }
         })
         .catch( err => {
             res.status(500).send({
-                message: `Error updating Recipe wihh id = ${id}`
+                message: `Error updating restaurant wihh id = ${id}`
             })
         })
 
 };
 
-// delete recipe w/ specified id
+// delete restaurant w/ specified id
 exports.delete = (req, res) => {
     console.log("req =>", req);
     const id = req.params.id;
     console.log("id => ", id);
 
-    Recipe.destroy({
+    Restaurant.destroy({
         where: {id: id}
     })
     .then(num => {
         if (num == 1) {
             res.send({
-                message: `Recipe was deleted successfully!`
+                message: `Restaurant was deleted successfully!`
             });
         } else {
             res.send({
-                message: `Cannot delete Recipe with id=${id}`
+                message: `Cannot delete restaurant with id=${id}`
             });
         }
     })
 };
 
-// delete all recipes
+// delete all restaurants
 exports.deleteAll = (req, res) => {
-    Recipe.destroy({
+    Restaurant.destroy({
         where: {},
         truncate: false
     })
     .then(nums => {
-        res.send({ message: `${nums} Recipes were successfully deleted!`})
+        res.send({ message: `${nums} Restaurant(s) were successfully deleted!`})
     })
     .catch(err => {
         res.status(500).send({
-            message: err.message || `Some error occurred while removing all recipes`
+            message: err.message || `Some error occurred while removing all rsturants`
         })
     })
 };

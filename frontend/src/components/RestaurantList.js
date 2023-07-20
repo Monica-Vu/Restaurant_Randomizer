@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import RecipeDataService from "../services/RecipeService";
+import RestaurantDataService from "../services/RestaurantService";
 import { Link } from "react-router-dom";
 
-const RecipesList = () => {
-    const [recipes, setRecipes] = useState([]);
-    const [currentRecipe, setCurrentRecipe] = useState(null);
+const RestaurantsList = () => {
+    const [restaurants, setRestaurants] = useState([]);
+    const [currentRestaurant, setCurrentRestaurant] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchName, setSearchName] = useState("");
 
     useEffect(() => {
-        retrieveRecipes();
+        retrieveRestaurants();
     }, []);
 
     const onChangeSearchName = e => {
@@ -17,10 +17,10 @@ const RecipesList = () => {
         setSearchName(searchName);
     };
 
-    const retrieveRecipes = () => {
-        RecipeDataService.getAll()
+    const retrieveRestaurants = () => {
+        RestaurantDataService.getAll()
             .then(response => {
-                setRecipes(response.data);
+                setRestaurants(response.data);
                 console.log(response.data);
             })
             .catch(e => {
@@ -29,18 +29,18 @@ const RecipesList = () => {
     };
 
     const refreshList = () => {
-        retrieveRecipes();
-        setCurrentRecipe(null);
+        retrieveRestaurants();
+        setCurrentRestaurant(null);
         setCurrentIndex(-1);
     };
 
-    const setActiveRecipe = (recipe, index) => {
-        setCurrentRecipe(recipe);
+    const setActiveRestaurant = (restaurant, index) => {
+        setCurrentRestaurant(restaurant);
         setCurrentIndex(index);
     };
 
-    const removeAllRecipes = () => {
-        RecipeDataService.deleteAll()
+    const removeAllRestaurants = () => {
+        RestaurantDataService.deleteAll()
             .then(response => {
                 console.log(response.data);
                 refreshList();
@@ -51,9 +51,9 @@ const RecipesList = () => {
     };
 
     const findByName = () => {
-        RecipeDataService.findByName(searchName)
+        RestaurantDataService.findByName(searchName)
             .then(response => {
-                setRecipes(response.data);
+                setRestaurants(response.data);
                 console.log(response.data);
             })
             .catch(e => {
@@ -84,48 +84,48 @@ const RecipesList = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <h4> Recipes List </h4>
+                <h4> Restaurants List </h4>
 
                 <ul className="list-group">
-                    {recipes &&
-                        recipes.map((recipe, index) => (
+                    {restaurants &&
+                        restaurants.map((restaurant, index) => (
                             <li
                                 className={
                                     "list-group-item" +
                                     (index === currentIndex ? "active" : "")
                                 }
-                                onClick={() => setActiveRecipe(recipe, index)}
+                                onClick={() => setActiveRestaurant(restaurant, index)}
                                 key={index}
                             >
-                                {recipe.name}
+                                {restaurant.name}
                             </li>
                         ))}
                 </ul>
                 <button
                     className="m-3 btn btn-sm btn-danger"
-                    onClick={removeAllRecipes}
+                    onClick={removeAllRestaurants}
                 >
                     Remove All
                 </button>
             </div>
             <div className="col-md-6">
-                {currentRecipe ? (
+                {currentRestaurant ? (
                     <div>
-                        <h4>Recipe</h4>
+                        <h4>Restaurant</h4>
                         <div>
                             <label>
                                 <strong> Name: </strong>
                             </label>{" "}
-                            {currentRecipe.name}
+                            {currentRestaurant.name}
                         </div>
                         <div>
                             <label>
                                 <strong>Ingredients: </strong>
                             </label>{" "}
-                            {currentRecipe.ingredients}
+                            {currentRestaurant.ingredients}
                         </div>
                         <Link 
-                            to={"/recipes/" + currentRecipe.id}
+                            to={"/restaurants/" + currentRestaurant.id}
                         >
                             Edit
                         </Link>
@@ -133,7 +133,7 @@ const RecipesList = () => {
                 ) : (
                     <div>
                         <br />
-                        <p> Please click on a Recipe...</p>
+                        <p> Please click on a Restaurant...</p>
                     </div>
                 )}
             </div>
@@ -141,4 +141,4 @@ const RecipesList = () => {
     );
 };
 
-export default RecipesList;
+export default RestaurantsList;

@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import RecipeDataService from "../services/RecipeService";
+import RestaurantDataService from "../services/RestaurantService";
 
-const AddRecipe = () => {
-    const intialRecipeState = {
+const AddRestaurant = () => {
+    const intialRestaurantState = {
         id: null,
         name: "",
         ingredients: ""
     };
 
-    const [recipe, setRecipe] = useState(intialRecipeState);
+    const [restaurant, setRestaurant] = useState(intialRestaurantState);
     const [submitted, setSubmitted] = useState(false);
 
     const handleInputChange = event => {
         const { name, value } = event.target;
-        setRecipe({ ...recipe, [name]: value})
+        setRestaurant({ ...restaurant, [name]: value})
     };
 
-    const saveRecipe = () => {
+    const saveRestaurant = () => {
         let data = {
-            name: recipe.name,
-            ingredients: recipe.ingredients
+            name: restaurant.name,
+            ingredients: restaurant.ingredients
         };
 
-        RecipeDataService.create(data)
+        RestaurantDataService.create(data)
             .then(response => {
-                setRecipe({
+                setRestaurant({
                     id: response.data.id,
                     name: response.data.name,
                     ingredients: response.data.ingredients
@@ -37,8 +37,8 @@ const AddRecipe = () => {
             });
     };
     
-    const newRecipe = () => {
-        setRecipe(intialRecipeState);
+    const newRestaurant = () => {
+        setRestaurant(intialRestaurantState);
         setSubmitted(false);
     };
 
@@ -47,7 +47,7 @@ const AddRecipe = () => {
         {submitted ? (
             <div>
                 <h4>You submitted successfully</h4>
-                <button className="btn btn-success" onClick={newRecipe}> 
+                <button className="btn btn-success" onClick={newRestaurant}> 
                     Add
                 </button>
             </div>
@@ -60,7 +60,7 @@ const AddRecipe = () => {
                     className="form-control"
                     id="name"
                     required
-                    value={recipe.name}
+                    value={restaurant.name}
                     onChange={handleInputChange}
                     name="name"
                     /> 
@@ -73,13 +73,13 @@ const AddRecipe = () => {
                     className="form-control"
                     id="ingredients"
                     required 
-                    value={recipe.ingredients}
+                    value={restaurant.ingredients}
                     onChange={handleInputChange}
                     name="ingredients"
                     /> 
                 </div>
 
-                <button onClick={saveRecipe} className="btn btn-success">
+                <button onClick={saveRestaurant} className="btn btn-success">
                 Submit
                 </button>
             </div>
@@ -88,4 +88,4 @@ const AddRecipe = () => {
     );
 };
 
-export default AddRecipe;
+export default AddRestaurant;

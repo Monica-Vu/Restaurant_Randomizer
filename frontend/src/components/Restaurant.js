@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import RecipeDataService from "../services/RecipeService";
+import RestaurantDataService from "../services/RestaurantService";
 
-const Recipe = props => {
+const Restaurant = props => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const intialRecipeState = {
+    const intialRestaurantState = {
         id: null,
         name: "",
         ingredients: ""
     }
 
-    const [currentRecipe, setCurrentRecipe] = useState(intialRecipeState);
+    const [currentRestaurant, setCurrentRestaurant] = useState(intialRestaurantState);
     const [message, setMessage] = useState("");
 
-    const getRecipe = id => {
-        RecipeDataService.get(id)
+    const getRestaurant = id => {
+        RestaurantDataService.get(id)
             .then(response => {
-            setCurrentRecipe(response.data);
+            setCurrentRestaurant(response.data);
             console.log(response.data)
         })
         .catch(e => {
@@ -28,30 +28,30 @@ const Recipe = props => {
 
     useEffect(() => {
         if (id)
-            getRecipe(id);
+            getRestaurant(id);
     }, [id]);
 
     const handleInputChange = event => {
         const { name, value } = event.target;
-        setCurrentRecipe({ ...currentRecipe, [name]: value });
+        setCurrentRestaurant({ ...currentRestaurant, [name]: value });
     };
 
-    const updateRecipe = () => {
-        RecipeDataService.update(currentRecipe.id, currentRecipe)
+    const updateRestaurant = () => {
+        RestaurantDataService.update(currentRestaurant.id, currentRestaurant)
         .then(response => {
             console.log(response.data);
-            setMessage("This recipe was updated successfully!");
+            setMessage("This restaurant was updated successfully!");
         })
         .catch(e => {
             console.log(e);
         });
     };
 
-    const deleteRecipe = () => {
-        RecipeDataService.delete(currentRecipe.id)
+    const deleteRestaurant = () => {
+        RestaurantDataService.delete(currentRestaurant.id)
         .then(response => {
             console.log(response.data);
-            navigate("/recipes");
+            navigate("/Restaurants");
         })
         .catch(e => {
             console.log(e);
@@ -59,9 +59,9 @@ const Recipe = props => {
     };
     return (
         <div className="col-md-6">
-          {currentRecipe ? (
+          {currentRestaurant ? (
             <div className="edit-form">
-              <h4>Recipe</h4>
+              <h4>Restaurant</h4>
               <form>
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
@@ -70,7 +70,7 @@ const Recipe = props => {
                     className="form-control"
                     id="name"
                     name="name"
-                    value={currentRecipe.name}
+                    value={currentRestaurant.name}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -81,20 +81,20 @@ const Recipe = props => {
                     className="form-control"
                     id="ingredients"
                     name="ingredients"
-                    value={currentRecipe.ingredients}
+                    value={currentRestaurant.ingredients}
                     onChange={handleInputChange}
                   />
                 </div>
                 </form> 
     
-              <button className="badge badge-danger mr-2" onClick={deleteRecipe}>
+              <button className="badge badge-danger mr-2" onClick={deleteRestaurant}>
                 Delete
               </button>
     
               <button
                 type="submit"
                 className="badge badge-success"
-                onClick={updateRecipe}
+                onClick={updateRestaurant}
               >
                 Update
               </button>
@@ -104,11 +104,11 @@ const Recipe = props => {
           ) : (
             <div>
               <br />
-              <p>Please click on a Recipe...</p>
+              <p>Please click on a restaurant...</p>
             </div>
           )}
         </div>
       );
     };
 
-export default Recipe;
+export default Restaurant;

@@ -23,10 +23,10 @@ db.sequelize.sync().then(() => {
 
 // simple route
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome~ Get started by entering some recipes. "})
+    res.json({ message: "Welcome~ Get started by entering some restaurants. "})
 });
 
-require("./app/routes/recipe.routes")(app);
+require("./app/routes/restaurant.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
