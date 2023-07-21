@@ -124,6 +124,13 @@ const RestaurantsList = () => {
                             </label>{" "}
                             {currentRestaurant.cuisinetype}
                         </div>
+
+                        <div>
+                            <label>
+                                <strong>Price Range: </strong>
+                            </label>{" "}
+                            {currentRestaurant.pricerange}
+                        </div>
                         <Link 
                             to={"/restaurants/" + currentRestaurant.id}
                         >

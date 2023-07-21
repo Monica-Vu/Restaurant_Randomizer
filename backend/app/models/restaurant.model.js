@@ -5,6 +5,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         cuisinetype: {
             type: Sequelize.STRING
+        },
+        pricerange: {
+            type: Sequelize.STRING
         }
     });
     return Restaurant;

@@ -13,7 +13,7 @@ class App extends React.Component {
             <div>
                 <nav className="navbar navbar-expand navbar-dark bg-dark"> 
                 <a href="/restaurants" className="navbar-brand">
-                    Monica Vu
+                    Resturant Random Generator
                 </a>
                 <div className="navbar-nav mr-auto">
                     <li className="nav-item">

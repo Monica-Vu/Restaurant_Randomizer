@@ -17,6 +17,9 @@
 # Sequelize Model Notes
 * Columns that are automatically generated: `id`, `createdAt`, `updatedAt` 
 
+# Tutorials
+https://www.geeksforgeeks.org/postgresql-naming-conventions/ -> learn about naming convetions
+
 # Action Items
 - [ ] Add a One-to-Many Relationship
 - [ ] Add a Many-to-Many Relationship
@@ -25,4 +28,3 @@
 https://www.bezkoder.com/react-node-express-postgresql/#Reactjs_Front-end
 
 Running `create-react-app` first to connect it
-

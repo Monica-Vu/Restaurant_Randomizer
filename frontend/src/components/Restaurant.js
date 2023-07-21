@@ -9,7 +9,8 @@ const Restaurant = props => {
     const intialRestaurantState = {
         id: null,
         name: "",
-        cuisinetype: ""
+        cuisinetype: "",
+        pricerange:""
     }
 
     const [currentRestaurant, setCurrentRestaurant] = useState(intialRestaurantState);
@@ -82,6 +83,18 @@ const Restaurant = props => {
                     id="cuisinetype"
                     name="cuisinetype"
                     value={currentRestaurant.cuisinetype}
+                    onChange={handleInputChange}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="pricerange">Price Range</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="pricerange"
+                    name="pricerange"
+                    value={currentRestaurant.pricerange}
                     onChange={handleInputChange}
                   />
                 </div>
