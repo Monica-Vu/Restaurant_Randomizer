@@ -12,8 +12,8 @@ class App extends React.Component {
         return (
             <div>
                 <nav className="navbar navbar-expand navbar-dark bg-dark"> 
-                <a href="/restaurants" className="navbar-brand">
-                    Resturant Random Generator
+                <a href="/restaurants" className="mx-2 navbar-brand">
+                    Random Restaurant Picker
                 </a>
                 <div className="navbar-nav mr-auto">
                     <li className="nav-item">
@@ -23,7 +23,7 @@ class App extends React.Component {
                         </li> 
                         <li className="nav-item">
                             <Link to={"/add"} className="nav-link"> 
-                            Add
+                            Add a Restaurant
                             </Link>
                     </li>
                 </div>

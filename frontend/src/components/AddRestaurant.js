@@ -95,7 +95,7 @@ const AddRestaurant = () => {
                     /> 
                 </div>
 
-                <button onClick={saveRestaurant} className="btn btn-success">
+                <button onClick={saveRestaurant} className="my-2 btn btn-success">
                 Submit
                 </button>
             </div>

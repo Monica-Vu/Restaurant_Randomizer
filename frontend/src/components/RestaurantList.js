@@ -63,8 +63,8 @@ const RestaurantsList = () => {
 
     return (
         <div className="list row">
-            <div className="col-md-8">
-                <div className="input-group m-3">
+            <div className="col-md-8 p-2">
+                <div className="input-group">
                     <input
                         type="text"
                         className="form-control"
@@ -102,7 +102,7 @@ const RestaurantsList = () => {
                         ))}
                 </ul>
                 <button
-                    className="m-3 btn btn-sm btn-danger"
+                    className="my-2 btn btn-sm btn-danger"
                     onClick={removeAllRestaurants}
                 >
                     Remove All

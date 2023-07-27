@@ -100,13 +100,15 @@ const Restaurant = props => {
                 </div>
                 </form> 
     
-              <button className="badge badge-danger mr-2" onClick={deleteRestaurant}>
+              <button 
+                className="btn btn-sm btn-danger"
+                onClick={deleteRestaurant}>
                 Delete
               </button>
     
               <button
+                 className="m-1 btn btn-sm btn-success"
                 type="submit"
-                className="badge badge-success"
                 onClick={updateRestaurant}
               >
                 Update
