@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import RestaurantDataService from "../services/RestaurantService";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react"
+import RestaurantDataService from "../services/RestaurantService"
+import { Link } from "react-router-dom"
 
 const RestaurantsList = () => {
     const [restaurants, setRestaurants] = useState([]);
