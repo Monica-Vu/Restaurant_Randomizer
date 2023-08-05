@@ -1,5 +1,5 @@
 {
-  "name": "recipes-app",
+  "name": "restaurants-app",
   "version": "1.0.0",
   "description": "Recipe Application Made with Express, Sequel & PostgreSQL",
   "main": "server.js",
