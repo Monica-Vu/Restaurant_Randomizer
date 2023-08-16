@@ -69,7 +69,7 @@ const AddRestaurant = () => {
                 </div>
 
                 <div className="form-group">
-                <label htmlFor="description">Cuisine Type</label>
+                <label htmlFor="cuisinetype">Cuisine Type</label>
                 <input 
                     type="text"
                     className="form-control"
@@ -82,11 +82,11 @@ const AddRestaurant = () => {
                 </div>
 
                 <div className="form-group">
-                <label htmlFor="description">Price Range</label>
+                <label htmlFor="pricerange">Price Range</label>
                 <input 
                     type="text"
                     className="form-control"
-                    id="ricerange"
+                    id="pricerange"
                     required 
                     value={restaurant.pricerange}
                     onChange={handleInputChange}
