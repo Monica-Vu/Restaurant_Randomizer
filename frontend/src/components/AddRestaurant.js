@@ -33,10 +33,9 @@ const AddRestaurant = () => {
                     pricerange: response.data.pricerange
                 });
                 setSubmitted(true);
-                console.log(response.data);
             })
             .catch(e => {
-                console.log(e);
+                console.info(e);
             });
     };
     

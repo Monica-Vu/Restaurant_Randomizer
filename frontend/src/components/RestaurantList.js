@@ -21,10 +21,9 @@ const RestaurantsList = () => {
         RestaurantDataService.getAll()
             .then(response => {
                 setRestaurants(response.data);
-                console.log(response.data);
             })
             .catch(e => {
-                console.log(e);
+                console.info(e);
             });
     };
 
@@ -42,11 +41,10 @@ const RestaurantsList = () => {
     const removeAllRestaurants = () => {
         RestaurantDataService.deleteAll()
             .then(response => {
-                console.log(response.data);
                 refreshList();
             })
             .catch(e => {
-                console.log(e);
+                console.info(e);
             });
     };
 
@@ -54,10 +52,9 @@ const RestaurantsList = () => {
         RestaurantDataService.findByName(searchName)
             .then(response => {
                 setRestaurants(response.data);
-                console.log(response.data);
             })
             .catch(e => {
-                console.log(e);
+                console.info(e);
             });
     };
 

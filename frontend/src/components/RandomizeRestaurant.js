@@ -13,9 +13,8 @@ const Randomizer = (props) => {
     try {
       const response = await RestaurantDataService.getAll();
       setRestaurants(response.data);
-      console.log("retrieveRestaurants =>", response.data);
     } catch (error) {
-      console.log("Error while retrieving restaurants:", error);
+      console.info("Error while retrieving restaurants:", error);
     }
   };
 

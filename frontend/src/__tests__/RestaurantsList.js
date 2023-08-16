@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import RestaurantsList from "../components/RestaurantList";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
@@ -42,7 +42,7 @@ describe("RestaurantsList component", () => {
     render(<BrowserRouter> {children} </BrowserRouter>);
   };
 
-  test.skip("renders correctly without errors", async () => {
+  test("renders correctly without errors", async () => {
     customRender(<RestaurantsList />);
 
     await waitFor(() => {
@@ -69,7 +69,7 @@ describe("RestaurantsList component", () => {
     });
   });
 
-  test.only("displays info on selected restaurant details after clicking on a restaurant", async () => {
+  test("displays info on selected restaurant details after clicking on a restaurant", async () => {
     customRender(<RestaurantsList />);
 
     await waitFor(() => {

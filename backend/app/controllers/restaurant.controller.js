@@ -5,7 +5,6 @@ const Op = db.Sequelize.Op;
 // create an save new restaurant
 exports.create = (req, res) => {
     // validate request
-    console.log("req =>", req.body)
     if (!req.body.name) {
         res.status(400).send({
             message: `Content can not be empty!`
@@ -98,9 +97,7 @@ exports.update = (req, res) => {
 
 // delete restaurant w/ specified id
 exports.delete = (req, res) => {
-    console.log("req =>", req);
     const id = req.params.id;
-    console.log("id => ", id);
 
     Restaurant.destroy({
         where: {id: id}

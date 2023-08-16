@@ -20,10 +20,9 @@ const Restaurant = props => {
         RestaurantDataService.get(id)
             .then(response => {
             setCurrentRestaurant(response.data);
-            console.log(response.data)
         })
         .catch(e => {
-            console.log(e);
+            console.info(e);
         });
     };
 
@@ -40,22 +39,20 @@ const Restaurant = props => {
     const updateRestaurant = () => {
         RestaurantDataService.update(currentRestaurant.id, currentRestaurant)
         .then(response => {
-            console.log(response.data);
             setMessage("This restaurant was updated successfully!");
         })
         .catch(e => {
-            console.log(e);
+            console.info(e);
         });
     };
 
     const deleteRestaurant = () => {
         RestaurantDataService.delete(currentRestaurant.id)
         .then(response => {
-            console.log(response.data);
             navigate("/Restaurants");
         })
         .catch(e => {
-            console.log(e);
+            console.info(e);
         });
     };
     return (
@@ -67,6 +64,7 @@ const Restaurant = props => {
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input
+                    data-testid="restaurant-name"
                     type="text"
                     className="form-control"
                     id="name"
@@ -78,6 +76,7 @@ const Restaurant = props => {
                 <div className="form-group">
                   <label htmlFor="cuisinetype">Cuisine Type</label>
                   <input
+                    data-testid="cuisine-type"
                     type="text"
                     className="form-control"
                     id="cuisinetype"
@@ -90,6 +89,7 @@ const Restaurant = props => {
                 <div className="form-group">
                   <label htmlFor="pricerange">Price Range</label>
                   <input
+                    data-testid="restaurant-price-range"
                     type="text"
                     className="form-control"
                     id="pricerange"
