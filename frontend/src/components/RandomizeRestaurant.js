@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RestaurantDataService from "../services/RestaurantService";
+import RestaurantDataService from "../services/RestaurantDataService";
 
 const Randomizer = (props) => {
   const [restaurants, setRestaurants] = useState([]);

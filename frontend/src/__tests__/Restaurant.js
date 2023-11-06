@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 
 const mockSpyDelete = jest.fn();
 
-jest.mock("../services/RestaurantService", () => ({
+jest.mock("../services/RestaurantDataService", () => ({
   get: (num) =>
     Promise.resolve({
       data: {
@@ -48,6 +48,8 @@ describe("Restaurants component", () => {
       expect(screen.getByText("Name")).toBeInTheDocument();
       expect(screen.getByText("Cuisine Type")).toBeInTheDocument();
       expect(screen.getByText("Price Range")).toBeInTheDocument();
+      expect(screen.getByText("Delete")).toBeInTheDocument();
+      expect(screen.getByText("Update")).toBeInTheDocument();
     });
   });
 

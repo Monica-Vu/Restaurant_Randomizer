@@ -13,7 +13,7 @@ const priceRangeInput = "$20 to $50 (CAD)";
 
 const mockSpyCreate = jest.fn();
 
-jest.mock("../services/RestaurantService", () => ({
+jest.mock("../services/RestaurantDataService", () => ({
     create: (data) => {
         mockSpyCreate();
         return Promise.resolve({

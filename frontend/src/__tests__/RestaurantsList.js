@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 
 // mock RestaurantsDataService to avoid actual API calls
-jest.mock("../services/RestaurantService", () => ({
+jest.mock("../services/RestaurantDataService", () => ({
   getAll: () =>
     Promise.resolve({
       data: [

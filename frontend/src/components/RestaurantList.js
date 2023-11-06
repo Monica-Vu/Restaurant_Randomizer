@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import RestaurantDataService from "../services/RestaurantService"
+import RestaurantDataService from "../services/RestaurantDataService"
 import { Link } from "react-router-dom"
 
 const RestaurantsList = () => {
@@ -111,21 +111,21 @@ const RestaurantsList = () => {
                         <h4>Restaurant</h4>
                         <div>
                             <label>
-                                <strong> Name: </strong>
-                            </label>{" "}
+                                <strong> Name:  </strong>
+                            </label> 
                             {currentRestaurant.name}
                         </div>
                         <div>
                             <label>
                                 <strong>Cuisine Type: </strong>
-                            </label>{" "}
+                            </label>
                             {currentRestaurant.cuisinetype}
                         </div>
 
                         <div>
                             <label>
                                 <strong>Price Range: </strong>
-                            </label>{" "}
+                            </label>
                             {currentRestaurant.pricerange}
                         </div>
                         <Link 

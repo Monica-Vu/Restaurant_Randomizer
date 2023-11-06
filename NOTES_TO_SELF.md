@@ -11,3 +11,6 @@
 * In React, when you perform certain actions (ex/rendering a component, updating a state, firing events), React may trigger asynchronous updates or side effects so `act` is used to ensure these updates are properly flushed out so you tests waits them to complete before making assertions
 
 # Backend
+
+# Challenges
+* FE unit tests 

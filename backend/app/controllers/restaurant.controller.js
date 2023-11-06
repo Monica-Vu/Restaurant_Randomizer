@@ -12,7 +12,7 @@ exports.create = (req, res) => {
         return;
     }
 
-    // create restaurant
+    // create restaurant object
     const restaurant = {
         name: req.body.name,
         cuisinetype: req.body.cuisinetype,
@@ -57,7 +57,7 @@ exports.findOne = (req, res) => {
             if (data) {
                 res.send(data);
             } else {
-                res.statis(404).send({ 
+                res.status(404).send({ 
                     message: `Cannot find Restaurant with id=${id}.`
                 })
             }

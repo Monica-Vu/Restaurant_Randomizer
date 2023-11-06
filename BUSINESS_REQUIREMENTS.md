@@ -9,7 +9,6 @@
 ## Extras
 * You can exclude certain restaurants, cuisine, or price range
 
-
 # Resources
 https://www.ntaskmanager.com/blog/user-story-task-breakdown-example/
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import RestaurantDataService from "../services/RestaurantService";
+import RestaurantDataService from "../services/RestaurantDataService";
 
 const Restaurant = props => {
     const { id } = useParams();
@@ -119,7 +119,7 @@ const Restaurant = props => {
           ) : (
             <div>
               <br />
-              <p>Please click on a restaurant...</p>
+              <p>Please click on a Restaurant...</p>
             </div>
           )}
         </div>

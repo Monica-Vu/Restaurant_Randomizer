@@ -1,6 +1,6 @@
 const dbConfig = require("../db.config.js");
-
 const Sequelize = require("sequelize")
+
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.host,
     dialect: dbConfig.dialect, 
@@ -14,6 +14,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     }
 }); 
 
+// creating the `db` object and assigning `Sequelize` and `sequelize` allows us to access the instance more easily
 const db = {};
 
 db.Sequelize = Sequelize;

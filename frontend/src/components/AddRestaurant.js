@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import RestaurantDataService from "../services/RestaurantService";
+import RestaurantDataService from "../services/RestaurantDataService";
 
 const AddRestaurant = () => {
     const intialRestaurantState = {
